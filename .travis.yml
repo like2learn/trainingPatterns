@@ -7,3 +7,5 @@ after_success:
 notifications:
   email:
     - like2learnit@mail.ru
+  slack:
+    - stepic-conf:D1bHngvNIpVAyQmtVOC3USqQ
