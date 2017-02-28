@@ -19,6 +19,18 @@ public class CommandTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private Light lightMock;
 
+    @Before
+    public void initTest() {
+        System.setOut(new PrintStream(outContent));
+        lightMock = Mockito.mock(Light.class);
+    }
+
+    @After
+    public void destroyTest() {
+        System.setOut(null);
+        lightMock = null;
+    }
+
     @Test
     public void whenCallTurnOnThenOutputLightOn() {
         Light light = new Light();
@@ -69,18 +81,6 @@ public class CommandTest {
         switch_.storeAndExecute(flipDownCommand);
 
         verify(lightMock, times(3)).turnOff();
-    }
-
-    @Before
-    public void initTest() {
-        System.setOut(new PrintStream(outContent));
-        lightMock = Mockito.mock(Light.class);
-    }
-
-    @After
-    public void destroyTest() {
-        System.setOut(null);
-        lightMock = null;
     }
 
 
