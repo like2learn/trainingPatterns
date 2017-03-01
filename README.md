@@ -6,3 +6,4 @@
 ### study patterns
   1. Command
   2. Decorator
+  3. Test
