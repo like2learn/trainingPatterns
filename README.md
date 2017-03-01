@@ -5,3 +5,4 @@
 ## Patterns
 ### study patterns
   1. Command
+  2. Decorator
