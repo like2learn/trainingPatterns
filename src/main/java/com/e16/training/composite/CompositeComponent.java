@@ -4,11 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompositeComponent implements Component {
-    private List<Component> componentList = new ArrayList<>();
+    private final List<Component> componentList = new ArrayList<>();
+    private final String separator = System.lineSeparator();
 
     @Override
     public String operation() {
-        return "CompositeComponent operation";
+        StringBuilder sb = new StringBuilder();
+        sb.append("CompositeComponent operation");
+        sb.append(separator);
+        for (Component c : componentList) {
+            sb.append(c.operation());
+            sb.append(separator);
+        }
+        return sb.toString();
+    }
+
+    public String getSeparator() {
+        return separator;
     }
 
     public boolean add(Component component) {

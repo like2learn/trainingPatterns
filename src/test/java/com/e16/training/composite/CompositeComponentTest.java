@@ -25,8 +25,14 @@ public class CompositeComponentTest {
 
     @Test
     public void operationCompositeComponent() throws Exception {
+        compositeComponent.add(indivisibleComponent);
+        String expected = "CompositeComponent operation" +
+                compositeComponent.getSeparator() +
+                "IndivisibleComponent operation" +
+                compositeComponent.getSeparator();
+
         assertThat(compositeComponent.operation(),
-                is("CompositeComponent operation"));
+                is(expected));
     }
 
     @Test
